@@ -8,6 +8,7 @@
 
 #import "M2AppDelegate.h"
 #import "Amplitude.h"
+#import "AMPRevenue.h"
 
 @implementation M2AppDelegate
 
@@ -15,6 +16,45 @@
 {
   [Amplitude instance].trackingSessionEvents = YES;
   [[Amplitude instance] initializeApiKey:@"cd6312957e01361e6c876290f26d9104"];
+
+    [Amplitude instanceWithName:@"app2"].trackingSessionEvents = YES;
+    [[Amplitude instanceWithName:@"app2"] initializeApiKey:@"c6fa6b27f515fb3f0e5ece6caf86027b"];
+    [[Amplitude instanceWithName:@"app2"] setMinTimeBetweenSessionsMillis:5000];
+
+    [Amplitude instanceWithName:@"app3"].trackingSessionEvents = YES;
+    [[Amplitude instanceWithName:@"app3"] initializeApiKey:@"c6fa6b27f515fb3f0e5ece6caf86027b"];
+    [[Amplitude instanceWithName:@"app3"] setMinTimeBetweenSessionsMillis:1000];
+
+    [Amplitude instanceWithName:@"app16"].trackingSessionEvents = YES;
+    [[Amplitude instanceWithName:@"app16"] initializeApiKey:@"c6fa6b27f515fb3f0e5ece6caf86027b"];
+    [[Amplitude instanceWithName:@"app16"] setMinTimeBetweenSessionsMillis:1000];
+    [[Amplitude instanceWithName:@"app16"] logEvent:@"logging event on app 16"];
+
+    AMPRevenue *revenue = [[[[AMPRevenue revenue] setProductIdentifier:@"prod.productIdentifier"] setPrice:[NSNumber numberWithDouble:-55.99]] setQuantity:10];
+    [[revenue setRevenueType:@"lost revenue"] setEventProperties:[NSDictionary dictionaryWithObject:@"Boston" forKey:@"city"]];
+    NSString *receipt = @"cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc";
+    [revenue setReceipt:[receipt dataUsingEncoding:NSUTF8StringEncoding]];
+    [[Amplitude instance] logRevenueV2:revenue];
+    [[Amplitude instance] setGroup:@"slick" groupName:@"deals"];
+
+
+    NSDictionary *eventProperties = @{
+        @"currency_0": @63,
+        @"name": @"Gold",
+        @"num_rarity_0": @9,
+        @"num_rarity_1": @2,
+        @"num_rarity_2": @0,
+        @"num_rarity_3": @0,
+        @"num_rarity_stacks_0": @2,
+        @"num_rarity_stacks_1": @1,
+        @"num_rarity_stacks_2": @0,
+        @"num_rarity_stacks_3": @0,
+        @"num_total_cards": @11,
+        @"oid": @"150,1,1",
+        @"rank": @1,
+        @"rewards": @"63x 1,0,0, 2x 42,201,0, 6x 42,200,0, 3x 42,200,0"
+    };
+    [[Amplitude instance] logEvent:@"test event properties" withEventProperties:eventProperties];
 
   // Add action for remind later.
   UIMutableUserNotificationAction *laterAction = [[UIMutableUserNotificationAction alloc] init];
@@ -52,6 +92,7 @@
 
 - (void)applicationDidEnterBackground:(UIApplication *)application
 {
+    [[Amplitude instance] logEvent:@"ENTER BACKGROUND"];
   [self sendReminderNotification:5];
 }
 
@@ -109,6 +150,7 @@
     NSLog(@"Received push notification: %@, identifier: %@", notification, identifier); // iOS 8
     [[Amplitude instance] initializeApiKey:@"cd6312957e01361e6c876290f26d9104"];
     [[Amplitude instance] logEvent:@"Opened Remote Notification"];
+    [[Amplitude instance] regenerateDeviceId];
 
     completionHandler();
 }

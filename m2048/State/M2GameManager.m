@@ -203,13 +203,29 @@ BOOL iterate(NSInteger value, BOOL countUp, NSInteger upper, NSInteger lower) {
 
   // Update current level.
   if (_level != nextLevel) {
+      [[Amplitude instance] getSessionId];
     AMPIdentify *identify = [[AMPIdentify identify] set:@"level" value: [NSNumber numberWithUnsignedInteger:_level]];
     [identify append:@"list" value:@"value"];
     [[Amplitude instance] identify:identify];
-    [[Amplitude instance] logEvent:@"Level Up" withEventProperties:@{
-      @"score": [NSNumber numberWithUnsignedInteger:_score],
-      @"level": [NSNumber numberWithUnsignedInteger:_level]
-    }];
+      NSMutableArray *array = [NSMutableArray array];
+      [array addObject:@"prepend"];
+      [array addObject:@"this"];
+      [array addObject:@"at"];
+      [array addObject:@"the"];
+      [array addObject:@"front"];
+      [array addObject:@"of"];
+      AMPIdentify *identify2 = [[AMPIdentify identify] prepend:@"list" value:array];
+      [[Amplitude instance] identify:identify2];
+//      [[Amplitude instance] setGroup:@"orgId" groupName:[NSNumber numberWithInt:85]];
+//      [[Amplitude instance] setGroup:@"latvia" groupName:[NSArray arrayWithObjects:@"potatoes", @"carbs", @[@"chili", @"soup"], nil]];
+
+//    [[Amplitude instance] logEvent:@"Level Up" withEventProperties:@{
+//      @"score": [NSNumber numberWithUnsignedInteger:_score],
+//      @"level": [NSNumber numberWithUnsignedInteger:_level]
+//      } withGroups:@{
+//        @"slick": @"no_deals"
+//      }];
+//      [[Amplitude instanceWithName:@"app2"] logEvent:@"app2 level up"];
   }
   _level = nextLevel;
 
