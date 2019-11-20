@@ -1,1 +1,1 @@
-../../../Amplitude-iOS/Amplitude/AMPURLConnection.h
+../../../../../forked_ios/Amplitude-iOS/Sources/Amplitude/AMPURLConnection.h

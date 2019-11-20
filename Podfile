@@ -2,9 +2,9 @@
 platform :ios, '9.0'
 
 target 'm2048' do
-    pod 'Amplitude-iOS', '~> 4.0.0'
-    # pod 'Amplitude-iOS', :git => 'https://github.com/Amplitude/Amplitude-iOS.git', :branch => 'carrier_error'
-    # pod 'Amplitude-iOS', :path => '~/sdk/Amplitude-iOS'
+    # pod 'Amplitude-iOS', '~> 4.0.0'
+    pod 'Amplitude-iOS', :git => 'https://github.com/Amplitude/Amplitude-iOS.git', :branch => 'hackathon'
+#    pod 'Amplitude-iOS', :path => '~/repos/sdks/forked_ios/Amplitude-iOS'
     # pod 'Analytics' # Segment
 end
 

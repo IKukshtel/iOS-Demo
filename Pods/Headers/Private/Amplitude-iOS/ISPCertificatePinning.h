@@ -1,1 +1,1 @@
-../../../Amplitude-iOS/Amplitude/SSLCertificatePinning/ISPCertificatePinning.h
+../../../../../forked_ios/Amplitude-iOS/Sources/Amplitude/SSLCertificatePinning/ISPCertificatePinning.h

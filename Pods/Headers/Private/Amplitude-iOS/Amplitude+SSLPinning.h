@@ -1,1 +1,1 @@
-../../../Amplitude-iOS/Amplitude/Amplitude+SSLPinning.h
+../../../../../forked_ios/Amplitude-iOS/Sources/Amplitude/Amplitude+SSLPinning.h

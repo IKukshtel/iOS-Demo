@@ -1,1 +1,1 @@
-../../../Amplitude-iOS/Amplitude/AMPLocationManagerDelegate.h
+../../../../../forked_ios/Amplitude-iOS/Sources/Amplitude/AMPLocationManagerDelegate.h

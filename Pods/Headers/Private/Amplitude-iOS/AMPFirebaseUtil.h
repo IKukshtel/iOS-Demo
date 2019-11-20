@@ -1,0 +1,1 @@
+../../../../../forked_ios/Amplitude-iOS/Sources/Amplitude/AMPFirebaseUtil.h

@@ -101,6 +101,44 @@ BOOL iterate(NSInteger value, BOOL countUp, NSInteger upper, NSInteger lower) {
   BOOL reverse = direction == M2DirectionUp || direction == M2DirectionRight;
   NSInteger unit = reverse ? 1 : -1;
 
+    switch (direction) {
+        case M2DirectionUp:
+            [[Amplitude instance] logEvent:@"Move Up" withEventProperties:@{
+            @"score": [NSNumber numberWithUnsignedInteger:_score],
+            @"level": [NSNumber numberWithUnsignedInteger:_level]
+            } withGroups:@{
+              @"slick": @"no_deals"
+            }];
+            break;
+        case M2DirectionDown:
+            [[Amplitude instance] logEvent:@"Move Down" withEventProperties:@{
+            @"score": [NSNumber numberWithUnsignedInteger:_score],
+            @"level": [NSNumber numberWithUnsignedInteger:_level]
+            } withGroups:@{
+              @"slick": @"no_deals"
+            }];
+            break;
+        case M2DirectionLeft:
+            [[Amplitude instance] logEvent:@"Move Left" withEventProperties:@{
+            @"score": [NSNumber numberWithUnsignedInteger:_score],
+            @"level": [NSNumber numberWithUnsignedInteger:_level]
+            } withGroups:@{
+              @"slick": @"no_deals"
+            }];
+            break;
+        case M2DirectionRight:
+            [[Amplitude instance] logEvent:@"Move Up" withEventProperties:@{
+            @"score": [NSNumber numberWithUnsignedInteger:_score],
+            @"level": [NSNumber numberWithUnsignedInteger:_level]
+            } withGroups:@{
+              @"slick": @"no_deals"
+            }];
+            break;
+            
+        default:
+            break;
+    }
+    
   if (direction == M2DirectionUp || direction == M2DirectionDown) {
     [_grid forEach:^(M2Position position) {
       if ((tile = [_grid tileAtPosition:position])) {
@@ -216,16 +254,16 @@ BOOL iterate(NSInteger value, BOOL countUp, NSInteger upper, NSInteger lower) {
       [array addObject:@"of"];
       AMPIdentify *identify2 = [[AMPIdentify identify] prepend:@"list" value:array];
       [[Amplitude instance] identify:identify2];
-//      [[Amplitude instance] setGroup:@"orgId" groupName:[NSNumber numberWithInt:85]];
-//      [[Amplitude instance] setGroup:@"latvia" groupName:[NSArray arrayWithObjects:@"potatoes", @"carbs", @[@"chili", @"soup"], nil]];
+      [[Amplitude instance] setGroup:@"orgId" groupName:[NSNumber numberWithInt:85]];
+      [[Amplitude instance] setGroup:@"latvia" groupName:[NSArray arrayWithObjects:@"potatoes", @"carbs", @[@"chili", @"soup"], nil]];
 
-//    [[Amplitude instance] logEvent:@"Level Up" withEventProperties:@{
-//      @"score": [NSNumber numberWithUnsignedInteger:_score],
-//      @"level": [NSNumber numberWithUnsignedInteger:_level]
-//      } withGroups:@{
-//        @"slick": @"no_deals"
-//      }];
-//      [[Amplitude instanceWithName:@"app2"] logEvent:@"app2 level up"];
+    [[Amplitude instance] logEvent:@"Level Up" withEventProperties:@{
+      @"score": [NSNumber numberWithUnsignedInteger:_score],
+      @"level": [NSNumber numberWithUnsignedInteger:_level]
+      } withGroups:@{
+        @"slick": @"no_deals"
+      }];
+      //[[Amplitude instanceWithName:@"app2"] logEvent:@"app2 level up"];
   }
   _level = nextLevel;
 

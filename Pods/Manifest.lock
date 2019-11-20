@@ -1,12 +1,16 @@
 PODS:
-  - Amplitude-iOS (4.0.0)
+  - Amplitude-iOS (4.8.2)
 
 DEPENDENCIES:
-  - Amplitude-iOS (~> 4.0.0)
+  - Amplitude-iOS (from `~/repos/sdks/forked_ios/Amplitude-iOS`)
+
+EXTERNAL SOURCES:
+  Amplitude-iOS:
+    :path: "~/repos/sdks/forked_ios/Amplitude-iOS"
 
 SPEC CHECKSUMS:
-  Amplitude-iOS: ec067e42a34ced92dc72df37bdf10524e865e8c3
+  Amplitude-iOS: 6368f850f036b6588a330858e2a3f5d085dd1d11
 
-PODFILE CHECKSUM: 19f67221db884cc881a04839d0650aec9025105f
+PODFILE CHECKSUM: d3a4122fb2c8f73323ce5f461c6f2ca9cbdc4c38
 
-COCOAPODS: 1.2.0.rc.1
+COCOAPODS: 1.8.4

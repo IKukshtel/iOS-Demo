@@ -1,1 +1,1 @@
-../../../Amplitude-iOS/Amplitude/AMPIdentify.h
+../../../../../forked_ios/Amplitude-iOS/Sources/Amplitude/AMPIdentify.h
