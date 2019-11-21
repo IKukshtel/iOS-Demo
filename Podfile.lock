@@ -2,15 +2,21 @@ PODS:
   - Amplitude-iOS (4.8.2)
 
 DEPENDENCIES:
-  - Amplitude-iOS (from `~/repos/sdks/forked_ios/Amplitude-iOS`)
+  - Amplitude-iOS (from `https://github.com/Amplitude/Amplitude-iOS.git`, branch `hackathon`)
 
 EXTERNAL SOURCES:
   Amplitude-iOS:
-    :path: "~/repos/sdks/forked_ios/Amplitude-iOS"
+    :branch: hackathon
+    :git: https://github.com/Amplitude/Amplitude-iOS.git
+
+CHECKOUT OPTIONS:
+  Amplitude-iOS:
+    :commit: 028dc0eca08682fda9072aea26405caf195052de
+    :git: https://github.com/Amplitude/Amplitude-iOS.git
 
 SPEC CHECKSUMS:
-  Amplitude-iOS: 6368f850f036b6588a330858e2a3f5d085dd1d11
+  Amplitude-iOS: 46c8e6e65c49bb1ad1909a9add1a68e1f8562b3f
 
-PODFILE CHECKSUM: d3a4122fb2c8f73323ce5f461c6f2ca9cbdc4c38
+PODFILE CHECKSUM: 6ac6734b226a7ab55e3ac16e641534bf4dfe1daa
 
 COCOAPODS: 1.8.4

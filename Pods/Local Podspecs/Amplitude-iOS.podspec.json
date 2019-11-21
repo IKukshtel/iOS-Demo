@@ -18,10 +18,10 @@
     "tvos": "9.0"
   },
   "source_files": [
-    "Sources/Amplitude/*.{h,m}",
-    "Sources/Amplitude/SSLCertificatePinning/*.{h,m}"
+    "Amplitude/*.{h,m}",
+    "Amplitude/SSLCertificatePinning/*.{h,m}"
   ],
-  "resources": "Sources/Amplitude/*.der",
+  "resources": "Amplitude/*.der",
   "requires_arc": true,
   "libraries": "sqlite3.0"
 }

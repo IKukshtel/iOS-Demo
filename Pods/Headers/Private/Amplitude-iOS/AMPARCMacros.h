@@ -1,1 +1,1 @@
-../../../../../forked_ios/Amplitude-iOS/Sources/Amplitude/AMPARCMacros.h
+../../../Amplitude-iOS/Amplitude/AMPARCMacros.h

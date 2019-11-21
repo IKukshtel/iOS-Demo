@@ -412,10 +412,10 @@
 			);
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-m2048/Pods-m2048-resources.sh",
-				"${PODS_ROOT}/../../forked_ios/Amplitude-iOS/Sources/Amplitude/api.amplitude.com.der",
-				"${PODS_ROOT}/../../forked_ios/Amplitude-iOS/Sources/Amplitude/ComodoCaLimitedRsaCertificationAuthority.der",
-				"${PODS_ROOT}/../../forked_ios/Amplitude-iOS/Sources/Amplitude/ComodoRsaCA.der",
-				"${PODS_ROOT}/../../forked_ios/Amplitude-iOS/Sources/Amplitude/ComodoRsaDomainValidationCA.der",
+				"${PODS_ROOT}/Amplitude-iOS/Amplitude/api.amplitude.com.der",
+				"${PODS_ROOT}/Amplitude-iOS/Amplitude/ComodoCaLimitedRsaCertificationAuthority.der",
+				"${PODS_ROOT}/Amplitude-iOS/Amplitude/ComodoRsaCA.der",
+				"${PODS_ROOT}/Amplitude-iOS/Amplitude/ComodoRsaDomainValidationCA.der",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (

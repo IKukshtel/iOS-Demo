@@ -1,1 +1,1 @@
-../../../../../forked_ios/Amplitude-iOS/Sources/Amplitude/AMPDeviceInfo.h
+../../../Amplitude-iOS/Amplitude/AMPDeviceInfo.h

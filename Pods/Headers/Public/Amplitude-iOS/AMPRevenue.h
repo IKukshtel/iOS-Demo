@@ -1,1 +1,1 @@
-../../../../../forked_ios/Amplitude-iOS/Sources/Amplitude/AMPRevenue.h
+../../../Amplitude-iOS/Amplitude/AMPRevenue.h
