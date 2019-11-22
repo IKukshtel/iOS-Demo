@@ -127,7 +127,7 @@ BOOL iterate(NSInteger value, BOOL countUp, NSInteger upper, NSInteger lower) {
             }];
             break;
         case M2DirectionRight:
-            [[Amplitude instance] logEvent:@"Move Up" withEventProperties:@{
+            [[Amplitude instance] logEvent:@"Move Right" withEventProperties:@{
             @"score": [NSNumber numberWithUnsignedInteger:_score],
             @"level": [NSNumber numberWithUnsignedInteger:_level]
             } withGroups:@{
